@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title> Electronics equipments</title>
+    <link rel="stylesheet" href="Styles/Stylesheet.css" type="text/css" />
+   
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            padding:0;
+            margin:0;
+        }
+        .auto-style2 {
+            width: 554px;
+            padding:0;
+            margin:0;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <form id="form1" runat="server">
+    <div id="wrapper"> 
+
+            <div id="banner"> 
+                <table style="width:100%;" ><tr>
+                    <td><asp:Image ID="Image1" runat="server" ImageUrl="~/Images/logo.jpg" Width="500px" Height="200px" /></td>
+                    <td>
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" />
+                        <br />
+                        <br />
+                                        <asp:Label ID="lblShare" Height="20px" runat="server" Text=""></asp:Label>
+
+                        <a href="https://www.blogger.com"><asp:Image ID="Image3" ImageUrl="~/Images/sharelogos/blogger.png" Height="20px" runat="server" /></a>
+                         <a href="https://twitter.com/"><asp:Image ID= "Image4" ImageUrl="~/Images/sharelogos/twitter.png " Height="20px" runat="server" /></a> 
+                       
+
+                    </td>
+                   <td> <p style="text-align:center"  "font-size:15px" "font-weight: bold" "padding: 13px 0px 0px 0px">Hey  <asp:LoginName ID="LoginName1" runat="server" /></p> </td>
+                       </tr>
+
+                </table>
+                  
+              </div>
+        
+               
+
+
+            <div id="navigation"> 
+                <ul id="nav">
+                      <li> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/Home.aspx">Home</asp:HyperLink> </li>
+                      <li> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Index.aspx">Shop</asp:HyperLink> </li>
+
+                    <li> <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Pages/ContactUs.aspx">Contact Us</asp:HyperLink> </li>
+ <li> <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Pages/MyAccount.aspx">My Account</asp:HyperLink> </li>
+                    <li> <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/About.aspx">About Us</asp:HyperLink> </li>
+                    <li> <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Admin_Management/Admin.aspx">Admin</asp:HyperLink> </li>
+                
+                <li style="float:right">
+                    <asp:HyperLink ID="linkRegister" runat="server"  NavigateUrl="~/Pages/AccountManagement/RegisterUsers.aspx">Register</asp:HyperLink>
+                    
+                    <asp:HyperLink ID="literalstat" runat="server" NavigateUrl="~/Pages/Trolley.aspx"> </asp:HyperLink>
+                        
+                         </li>
+
+                    <li style="float:right">
+                    <asp:HyperLink ID="linklogin" runat="server"  NavigateUrl="~/Pages/AccountManagement/Userlogin.aspx">Log In</asp:HyperLink>
+                        <asp:LinkButton ID="btnLinklogout" runat="server" OnClick="Linklogout_Click" >Logout</asp:LinkButton>
+                          </li>
+
+                </ul>
+            </div>
+            <div id="content">
+                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </div>
+         
+            
+        </div>
+
+           <div id="footer">  
+           
+               <table class="auto-style1" style="padding:0px; margin-top:0px; vertical-align:top; " cellspacing="0" cellpadding="0">
+                 <tr>
+                     <td colspan="2" style="vertical-align:bottom; height:10px;">
+                          <hr style="height:10px;border:none;color:#333;background-color:#333;margin-bottom:0px;" />
+                     </td>
+                 </tr>
+                   <tr> 
+                     <td class="auto-style2" cellpadding="0" style="vertical-align:top">&nbsp;
+                         <asp:TreeView ID="TreeView1" runat="server" ImageSet="Arrows">
+                             <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
+                             <Nodes>
+                                 <asp:TreeNode Text="Home" NavigateUrl="~/Pages/Home.aspx" Target="_blank" >
+                                     <asp:TreeNode Text="Login" NavigateUrl="~/Pages/AccountManagement/Userlogin.aspx" />
+                                     <asp:TreeNode Text="Register" NavigateUrl="~/Pages/AccountManagement/RegisterUsers.aspx"  />
+                                <asp:TreeNode Text="Contact Us" NavigateUrl="~/Pages/ContactUs.aspx"  />
+                                    <asp:TreeNode Text="About Us" NavigateUrl="~/Pages/About.aspx"  />
+                                     <asp:TreeNode Text="Shop" NavigateUrl="~/Index.aspx"  />
+                                      </asp:TreeNode>
+                                 <asp:TreeNode Text="Account" NavigateUrl="~/Pages/MyAccount.aspx" />
+
+                                 <asp:TreeNode Text="Admin" NavigateUrl="~/Pages/Admin_Management/Admin.aspx">
+                                     <asp:TreeNode Text="Manage Products" NavigateUrl="~/Pages/Admin_Management/Manage_Products.aspx"/>
+                                                                          <asp:TreeNode Text="Manage Types" NavigateUrl="~/Pages/Admin_Management/Manage_TypeProducts.aspx" />
+                                     </asp:TreeNode>
+                                 
+
+
+
+                                 
+                             </Nodes>
+                             <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+                             <ParentNodeStyle Font-Bold="False" />
+                             <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px" VerticalPadding="0px" />
+                         </asp:TreeView>
+                     </td>
+                     <td style="vertical-align:super"><br />Share with us on: <br/>
+
+&nbsp; <a href="https://www.facebook.com/"><asp:Image ID="Image6" ImageUrl="~/Images/sharelogos/facebook.jpg" Height="20px" runat="server" /></a>
+                         &nbsp<a href="https://www.blogger.com"><asp:Image ID="Image2" ImageUrl="~/Images/sharelogos/blogger.png" Height="20px" runat="server" /></a>
+                       <a href="https://twitter.com/"><asp:Image ID= "Image5" ImageUrl="~/Images/sharelogos/twitter.png " Height="20px" runat="server" /></a> 
+                     </td>
+                      
+                 </tr>
+                   <tr>
+                       <td colspan="2" style="vertical-align:top">
+                           <span style="text-align:center;font-size:15px;font-weight: bold; display:inline-block; width:100%; ">  Created by: Nzediegwu Patrick<br />
+  Contact information: <a href="mailto:name@email.com">pat.nzediegwu@gmail.com</a><br/>All Rights reserved.</span> 
+<hr style="height:10px;border:none;color:#333;background-color:#333;margin-top:0px;" />
+                       </td>
+                   </tr>
+             </table>
+              
+             
+
+                
+            </div>
+    </form>
+
+</body>
+</html>
